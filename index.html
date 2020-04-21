@@ -32,14 +32,14 @@
 			    else {
 			    	var msg = JSON.parse(event.data);
 			    	if(msg.host == "dioses") {
-			    		msg.logo = "/logos?imagen=dioses"
+			    		msg.logo = "/static/zeus.png"
 			    	}
 			    	else {
-			    		msg.logo = "/logos?imagen=nahuatl"
+			    		msg.logo = "/static/nahuatl.png"
 			    	}
 			    	var options = {
 			    		icon: msg.logo,
-			    		body: "Zeus"
+			    		body: msg.contenido
 			    	}
 			    	var notification = new Notification(msg.titulo, options);
 			    }
