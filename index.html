@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WS</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function conectar() {
+			const socket = new WebSocket(document.getElementById('direccion').value);
+			alert('Conectado')
+			// Escucha por mensajes
+			socket.addEventListener('message', function (event) {
+			    console.log('Message from server', event.data);
+			    //alert(event.data)
+			    if(Notification.permission == "denied") {
+			    	Notification.requestPermission()
+			    }
+			    else {
+			    	var msg = JSON.parse(event.data);
+			    	if(msg.host == "dioses") {
+			    		msg.logo = "/logos?imagen=dioses"
+			    	}
+			    	else {
+			    		msg.logo = "/logos?imagen=nahuatl"
+			    	}
+			    	var options = {
+			    		icon: msg.logo,
+			    		body: "Zeus"
+			    	}
+			    	var notification = new Notification(msg.titulo, options);
+			    }
+			});
+		}
+	</script>
+	<label for="direccion">URL: </label>
+	<input type="text" id="direccion" value="ws://localhost:9030">
+	<button onclick="conectar()">Conectar</button>
+</body>
+</html>
