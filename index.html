@@ -21,7 +21,7 @@
 
 		function conectar() {
 			const socket = new WebSocket(document.getElementById('direccion').value);
-			alert('Conectado')
+			var notification = new Notification("Conectado");
 			// Escucha por mensajes
 			socket.addEventListener('message', function (event) {
 			    console.log('Message from server', event.data);
@@ -48,6 +48,6 @@
 	</script>
 	<label for="direccion">URL: </label>
 	<input type="text" id="direccion" value="ws://localhost:9030">
-	<button onclick="permisos()">Conaectar</button>
+	<button onclick="permisos()">Conectar</button>
 </body>
 </html>
