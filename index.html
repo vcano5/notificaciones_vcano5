@@ -32,10 +32,10 @@
 			    else {
 			    	var msg = JSON.parse(event.data);
 			    	if(msg.host == "dioses") {
-			    		msg.logo = "/static/zeus.png"
+			    		msg.logo = "https://vcano5.github.io/notificaciones_vcano5//static/zeus.png"
 			    	}
 			    	else {
-			    		msg.logo = "/static/nahuatl.png"
+			    		msg.logo = "https://vcano5.github.io/notificaciones_vcano5//static/nahuatl.png"
 			    	}
 			    	var options = {
 			    		icon: msg.logo,
@@ -48,6 +48,6 @@
 	</script>
 	<label for="direccion">URL: </label>
 	<input type="text" id="direccion" value="ws://localhost:9030">
-	<button onclick="permisos()">Conectar</button>
+	<button onclick="permisos()">CONNECT</button>
 </body>
 </html>
