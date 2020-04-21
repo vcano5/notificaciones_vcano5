@@ -5,6 +5,20 @@
 </head>
 <body>
 	<script type="text/javascript">
+		function permisos() {
+			Notification.requestPermission(function(result) {
+				if (result === 'denied') {
+				    console.log('Permission wasn\'t granted. Allow a retry.');
+				    return;
+				  } 
+				  else if (result === 'default') {
+				    console.log('The permission request was dismissed.');
+				    return;
+				  }
+				  conectar()
+			})
+		}
+
 		function conectar() {
 			const socket = new WebSocket(document.getElementById('direccion').value);
 			alert('Conectado')
@@ -34,6 +48,6 @@
 	</script>
 	<label for="direccion">URL: </label>
 	<input type="text" id="direccion" value="ws://localhost:9030">
-	<button onclick="conectar()">Conectar</button>
+	<button onclick="permisos()">Conaectar</button>
 </body>
 </html>
