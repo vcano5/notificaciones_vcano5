@@ -21,7 +21,7 @@
 
 		function conectar() {
 			const socket = new WebSocket(document.getElementById('direccion').value);
-			var cnotification = new Notification("Conectado");
+			alert("Conectado");
 			// Escucha por mensajes
 			socket.addEventListener('message', function (event) {
 			    console.log('Message from server', event.data);
